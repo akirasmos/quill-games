@@ -111,44 +111,78 @@ examples.
 
 ## Putting it on mkquill.com
 
-mkquill.com looks like a WordPress site. Once you have access, the simplest
-setup is to keep the games on GitHub and link them from the newspaper site.
-That way puzzle permissions stay in GitHub, and nobody has to touch the
-newspaper's server.
+The code stays on GitHub, and GitHub Pages turns it into a live website for
+free. mkquill.com then gets a **Games** page that shows it. That way every
+change you merge on GitHub shows up on the newspaper site automatically, and
+the puzzle permissions keep working.
 
-1. **Publish the games with GitHub Pages (free).** In the `quill-games` repo:
-   **Settings → Pages → Source: Deploy from a branch → `main` / root → Save**.
-   After a minute the games are live at
-   `https://akirasmos.github.io/quill-games/`.
-   - Optional: a nicer address like `games.mkquill.com`. Add it under
-     **Settings → Pages → Custom domain**, then ask whoever manages the
-     mkquill.com domain (your adviser, the school's IT staff, or the site's
-     hosting provider) to add a `CNAME` record pointing `games` to
-     `akirasmos.github.io`.
-2. **Add a "Games" link to the site's menu.** In WordPress:
-   **Appearance → Menus** (or **Appearance → Customize → Menus**) →
-   **Custom Links** → URL: your games address, Link text: `Games` →
-   **Add to Menu → Save**. If the site is hosted by a student-newspaper
-   service with its own menu settings, it's in the same kind of place.
-3. **Or embed it in a WordPress page instead.** Create a page called
-   "Games", add a **Custom HTML** block, and paste:
+### Step 1: Turn on GitHub Pages
+
+In the `quill-games` repo: **Settings → Pages → Build and deployment →
+Source: Deploy from a branch → Branch: `main`, folder `/ (root)` → Save**.
+
+After a minute or two the games are live at
+**https://akirasmos.github.io/quill-games/**. Open it and play a round to
+check.
+
+### Step 2: Add a Games page on mkquill.com
+
+mkquill.com looks like a WordPress site. You'll need an **Administrator** or
+**Editor** account on it.
+
+1. In the WordPress dashboard: **Pages → Add New**. Title it `Games`.
+2. Add a **Custom HTML** block (click **+**, search "Custom HTML") and paste:
    ```html
-   <iframe src="https://akirasmos.github.io/quill-games/" style="width:100%;height:900px;border:0" title="The Quill Games"></iframe>
+   <iframe src="https://akirasmos.github.io/quill-games/"
+           title="The Quill Games"
+           style="width:100%;height:950px;border:0;display:block"
+           allow="clipboard-write; web-share"></iframe>
    ```
-   A plain menu link usually works better on phones. Use this only if you
-   want the site's header around the games.
-4. **Lock down the WordPress side.** In **Users**, only **Administrators**
-   can change menus and only **Editors/Administrators** can edit any page, so
-   keep those roles for the people who should manage the Games link. Staff
-   writers should be **Authors** or **Contributors**, who can't touch menus or
-   other people's pages.
-5. **Update the game links.** In `index.html`, the nav bar links already point
-   to mkquill.com's sections. Check them against the real site and fix any that
-   changed.
-6. **Set the launch date.** Change `LAUNCH_DATE` in `js/common.js` to the day
-   you go live, so that day is puzzle #1.
+   The `allow` part lets the **Share** buttons copy results.
+3. **Publish**. The page will be at something like `mkquill.com/games/`.
+4. Add it to the menu: **Appearance → Menus** (or **Appearance → Customize →
+   Menus**) → tick **Games** under Pages → **Add to Menu** → drag it where
+   you want → **Save Menu**.
 
-If your host lets you upload files directly (SFTP or a file manager), you can
-also upload the `quill-games` folder next to the site's files. You lose the
-GitHub approval step that way, so only do it if the people with upload access
-are the same people who should control the puzzles.
+Inside the page, the games hide their own masthead, nav bar and footer, since
+the newspaper page around them already has those. Opened directly at the
+GitHub address, they show everything.
+
+**If the Custom HTML block is missing or your iframe disappears when you
+save:** some hosts (including student-newspaper hosting services) only let
+Administrators add iframes. Ask your adviser or the site admin to paste it, or
+contact the host's support and ask how to embed an iframe. If embedding isn't
+allowed at all, add a **Custom Link** to the menu instead
+(**Appearance → Menus → Custom Links**, URL
+`https://akirasmos.github.io/quill-games/`, text `Games`). The games already
+look like part of The Quill, so readers still get a matching page.
+
+### Step 3 (optional): A nicer address
+
+To use `games.mkquill.com` instead of the github.io address:
+
+1. In the repo: **Settings → Pages → Custom domain** → `games.mkquill.com` →
+   **Save**.
+2. Whoever manages the mkquill.com domain (your adviser, school IT, or the
+   hosting company) adds a DNS record: type `CNAME`, name `games`, value
+   `akirasmos.github.io`.
+3. Once it works, tick **Enforce HTTPS** on the Pages settings screen and
+   change the iframe's `src` to `https://games.mkquill.com/`.
+
+### Before launch day
+
+- Set `LAUNCH_DATE` in `js/common.js` to the day you go live, so that day is
+  puzzle #1.
+- Check the section links in the nav bar in `index.html` against the real
+  site. They only show when someone opens the games directly.
+- Don't add the editor pages to the menu. Editors can bookmark
+  `…/quill-games/editor/quirdle.html` and `…/editor/quini.html`.
+
+### What about uploading the files to the newspaper's server?
+
+It's possible if your host gives you file access (SFTP or a file manager):
+upload everything into a `games` folder and it's live at
+`mkquill.com/games/`. But you'd have to re-upload after every puzzle change,
+and GitHub's approval rules no longer control what goes live. Most
+student-newspaper hosts don't allow it anyway. The GitHub Pages setup above
+is simpler and keeps your permissions working.

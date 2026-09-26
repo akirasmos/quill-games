@@ -10,6 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/games.css">
+  <script>
+    // Inside an iframe (e.g. a "Games" page on mkquill.com), or with ?embed in
+    // the address, hide our own masthead, nav and footer: the newspaper page
+    // around us already shows them.
+    (function () {
+      var framed = true;
+      try { framed = window.self !== window.top; } catch (e) {}
+      if (framed || /[?&]embed\b/.test(location.search)) document.documentElement.classList.add("embedded");
+    })();
+  </script>
 </head>
 <body>
   <header class="site-masthead">

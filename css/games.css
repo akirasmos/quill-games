@@ -292,6 +292,11 @@ button {
   .game-card { grid-template-columns: 1fr; }
   .game-card .art { height: 130px; }
 }
+.embedded .site-masthead,
+.embedded .site-nav,
+.embedded .site-footer { display: none; }
+.embedded .hub { padding-top: 16px; }
+
 .site-footer {
   background: var(--brand-dark);
   color: #d7e3db;
