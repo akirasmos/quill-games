@@ -50,6 +50,7 @@
     .ok { color: var(--correct); }
     .warn { color: #b3261e; font-weight: 600; }
     .muted { color: var(--muted); }
+    .note-sm { color: var(--gold-dark); font-size: 13px; }
     .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
     textarea { width: 100%; min-height: 120px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
     .summary { font-weight: 600; margin: 12px 0; }
@@ -70,6 +71,7 @@
       finished <code>quirdle-answers.js</code> and upload it to GitHub. Only the Quirdle editors
       listed in <code>.github/CODEOWNERS</code> can approve it going live.
       Days you leave blank use the next word from the backup list (shown in gray).
+      You can schedule any date, and any 5-letter word, even one that isn't in the backup list.
     </p>
 
     <div class="controls">
@@ -80,6 +82,7 @@
           <option value="31" selected>1 month</option>
           <option value="92">3 months</option>
           <option value="183">6 months</option>
+          <option value="366">1 year</option>
         </select>
       </label>
     </div>
@@ -126,11 +129,18 @@
     function problems(word, date) {
       var out = [];
       if (!/^[a-z]{5}$/.test(word)) out.push("must be 5 letters");
-      else if (!dictionary.has(word)) out.push("not in the word list, so players can't type it");
       Object.keys(schedule).forEach(function (d) {
         if (d !== date && schedule[d] === word) out.push("also on " + d);
       });
       return out;
+    }
+
+    // Any 5-letter word can be an answer (scheduled words are always accepted
+    // as guesses). This only flags possible typos.
+    function spellingNote(word) {
+      return /^[a-z]{5}$/.test(word) && !dictionary.has(word)
+        ? '<br><span class="note-sm">Not in the dictionary. Check the spelling. It will still work as the answer.</span>'
+        : "";
     }
 
     function render() {
@@ -150,7 +160,7 @@
           planned++;
           var pr = problems(word, key);
           if (pr.length) bad++;
-          check = pr.length ? '<span class="warn">⚠ ' + pr.join("; ") + "</span>" : '<span class="ok">✓ Scheduled</span>';
+          check = (pr.length ? '<span class="warn">⚠ ' + pr.join("; ") + "</span>" : '<span class="ok">✓ Scheduled</span>') + spellingNote(word);
         } else {
           check = '<span class="muted">Backup word</span>';
         }
@@ -174,10 +184,12 @@
 
     function readBackup() {
       backup = backupEl.value.toLowerCase().split(/[^a-z]+/).filter(Boolean);
-      var bad = backup.filter(function (w) { return w.length !== 5 || !dictionary.has(w); });
+      var bad = backup.filter(function (w) { return w.length !== 5; });
+      var unknown = backup.filter(function (w) { return w.length === 5 && !dictionary.has(w); });
       var dupes = backup.filter(function (w, i) { return backup.indexOf(w) !== i; });
       var msg = backup.length + " backup words (about " + Math.round(backup.length / 30) + " months).";
-      if (bad.length) msg += ' <span class="warn">Check these: ' + bad.join(", ") + "</span>";
+      if (bad.length) msg += ' <span class="warn">Not 5 letters: ' + bad.join(", ") + "</span>";
+      if (unknown.length) msg += ' <span class="note-sm">Not in the dictionary (check spelling): ' + unknown.join(", ") + "</span>";
       if (dupes.length) msg += ' <span class="warn">Repeated: ' + dupes.join(", ") + "</span>";
       document.getElementById("backup-check").innerHTML = msg;
     }

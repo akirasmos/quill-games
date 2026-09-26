@@ -63,10 +63,15 @@ with several owners they can simply approve each other's schedules.
 
 1. Open `editor/quirdle.html` (on the live site, or by double-clicking the file
    on your computer).
-2. Type a word next to any date. Each word is checked right away:
+2. Type a word next to any date. Use **Start date** and **Show** (up to a
+   year) to reach dates further ahead. Any 5-letter word works, including
+   school words that aren't in the backup list, like a mascot or teacher's
+   name. Each word is checked right away:
    - it must be 5 letters
-   - it must be in the word list, or players wouldn't be able to type it
    - it can't already be used on another date
+   - if it isn't in the dictionary, you'll see a note asking you to check the
+     spelling. It still works as the answer, since scheduled words are always
+     accepted as guesses.
 3. Days you leave blank use the next word from the **backup list** (the gray
    words), so there's never a missing puzzle. You can edit the backup list at
    the bottom of the page too.
