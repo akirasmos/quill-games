@@ -1,4 +1,4 @@
-/* The Quill Mini crossword. */
+/* The Quini crossword. */
 (function () {
   var SIZE = 5;
   var STATE_KEY = "mini-state";
@@ -19,7 +19,7 @@
     STATE_KEY = "mini-preview-state";
     STATS_KEY = "mini-preview-stats";
     try { localStorage.removeItem(STATE_KEY); } catch (e) {}
-    document.title = "Test solve – Quill Mini";
+    document.title = "Test solve – Quini";
   }
 
   // ---------- Build the puzzle model ----------
@@ -51,7 +51,7 @@
       r += dr; c += dc;
     }
     var entry = (puzzle[dir] || []).find(function (e) { return e[0].toUpperCase() === w.answer; });
-    if (!entry) console.warn("Mini: no " + dir + " clue for " + w.answer + " (" + w.num + "-" + dir + ")");
+    if (!entry) console.warn("Quini: no " + dir + " clue for " + w.answer + " (" + w.num + "-" + dir + ")");
     w.clue = entry ? entry[1] : "";
     words.push(w);
   }
@@ -379,8 +379,8 @@
 
   function showDone() {
     document.getElementById("done-text").textContent = state.helped
-      ? "You finished the Mini in " + Quill.formatTime(state.seconds) + " (with a little help)."
-      : "You solved the Mini in " + Quill.formatTime(state.seconds) + ".";
+      ? "You finished the Quini in " + Quill.formatTime(state.seconds) + " (with a little help)."
+      : "You solved the Quini in " + Quill.formatTime(state.seconds) + ".";
     var streak = stats.lastSolvedDay !== null && stats.lastSolvedDay >= day - 1 ? stats.streak : 0;
     document.getElementById("mini-stats").innerHTML = [
       [stats.solved, "Solved"],
@@ -393,7 +393,7 @@
   }
 
   document.getElementById("share-btn").addEventListener("click", function () {
-    Quill.share("I solved The Quill Mini #" + (day + 1) + " in " + Quill.formatTime(state.seconds) + "! ✏️");
+    Quill.share("I solved The Quini #" + (day + 1) + " in " + Quill.formatTime(state.seconds) + "! ✏️");
   });
 
   // ---------- Timer & pausing ----------

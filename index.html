@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light only">
   <title>Games – The Quill</title>
-  <meta name="description" content="Daily word games and puzzles from The Quill: Quirdle and the Quill Mini crossword.">
+  <meta name="description" content="Daily word games and puzzles from The Quill: Quirdle and the Quini crossword.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
         </div>
         <div class="body">
           <span class="kicker">Crossword</span>
-          <h2>Quill Mini</h2>
+          <h2>Quini</h2>
           <p class="desc">A quick 5&times;5 crossword. Race the clock.</p>
           <div class="status" id="mini-status"></div>
           <span class="play">Play</span>
@@ -109,7 +109,7 @@
       var ms = document.getElementById("mini-status");
       if (m && m.day === day && m.done) { ms.textContent = "✓ Solved in " + Quill.formatTime(m.seconds); ms.classList.add("done"); }
       else if (m && m.day === day && m.started) ms.textContent = "In progress · " + Quill.formatTime(m.seconds);
-      else ms.textContent = "Mini #" + (day + 1);
+      else ms.textContent = "Quini #" + (day + 1);
     })();
   </script>
 </body>

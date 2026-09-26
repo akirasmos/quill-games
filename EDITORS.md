@@ -1,7 +1,7 @@
 # Running The Quill Games: a guide for editors
 
 This covers three things: who is allowed to publish puzzles, how to make a
-Quirdle or a Quill Mini, and how to hook it all up to mkquill.com.
+Quirdle or a Quini, and how to hook it all up to mkquill.com.
 
 ## How permissions work
 
@@ -11,7 +11,7 @@ The games are plain files on a website, so "who can make puzzles" really means
 | File | What it controls | Who can change it |
 |---|---|---|
 | `js/quirdle-answers.js` | Which Quirdle word runs on which day | The Quirdle editors (a few people) |
-| `js/mini-puzzles.js` | Every Quill Mini puzzle | The Mini editor (one person) |
+| `js/mini-puzzles.js` | Every Quini puzzle | The Quini editor (one person) |
 
 Those rules live in **`.github/CODEOWNERS`** and are enforced by GitHub.
 Anyone else can *suggest* a change, but it can't go live until the right person
@@ -52,11 +52,11 @@ Do this once, as the owner of the repository that hosts the games.
    Without this step, CODEOWNERS only *suggests* reviewers and doesn't block
    anything.
 
-**When the Mini editor publishes their own puzzle:** GitHub never lets people
-approve their own changes. So when the Mini editor submits a puzzle, you (the
+**When the Quini editor publishes their own puzzle:** GitHub never lets people
+approve their own changes. So when the Quini editor submits a puzzle, you (the
 repo admin) finish it by clicking **Merge without waiting for requirements to
-be met** on the pull request. When anyone *else* touches the Mini file, only the
-Mini editor's approval can publish it. The Quirdle file works the same way, but
+be met** on the pull request. When anyone *else* touches the Quini file, only the
+Quini editor's approval can publish it. The Quirdle file works the same way, but
 with several owners they can simply approve each other's schedules.
 
 ## Making a Quirdle
@@ -77,7 +77,7 @@ with several owners they can simply approve each other's schedules.
 6. A Quirdle editor approves it and clicks **Merge**. It's live within a
    minute or two.
 
-## Making a Quill Mini
+## Making a Quini
 
 1. Open `editor/mini.html`.
 2. Build the grid. Click a square and type. Press `.` or `#` for a black
@@ -97,10 +97,10 @@ with several owners they can simply approve each other's schedules.
    pencil (**Edit**) icon → paste the entry at the end of the list, just above
    the final `];` → **Commit changes… → Create a new branch and start a pull
    request**.
-8. The Mini editor approves and merges (or you do, if the Mini editor wrote
+8. The Quini editor approves and merges (or you do, if the Quini editor wrote
    it; see above).
 
-Good Mini habits: keep 5-letter words common, avoid obscure abbreviations, and
+Good Quini habits: keep 5-letter words common, avoid obscure abbreviations, and
 give school-themed clues when you can. The first puzzles in the file are good
 examples.
 

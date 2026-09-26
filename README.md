@@ -4,7 +4,7 @@ A daily games section for *The Quill*, the student news publication of Morris
 Knolls High School, styled in The Quill's green and gold to sit alongside mkquill.com:
 
 - **Quirdle**: guess the hidden 5-letter word in 6 tries.
-- **Quill Mini**: a 5×5 daily crossword with a timer.
+- **Quini**: a 5×5 daily crossword with a timer.
 
 It's plain HTML, CSS and JavaScript with no build step and no server code, so it
 works on any host: GitHub Pages, Netlify, your school's web server, or an
@@ -14,15 +14,15 @@ works on any host: GitHub Pages, Netlify, your school's web server, or an
 quill-games/
 ├── index.html              Games home page (links to both games)
 ├── quirdle.html            Quirdle
-├── mini.html               Quill Mini crossword
+├── mini.html               Quini crossword
 ├── EDITORS.md              How to make puzzles, permissions, going live
 ├── editor/
 │   ├── quirdle.html        Schedule Quirdle words by date
-│   └── mini.html           Build, check and test-solve a Mini
+│   └── mini.html           Build, check and test-solve a Quini
 ├── css/games.css           Shared styles (colors are at the top)
 └── js/
     ├── quirdle-answers.js  Quirdle words by date  (Quirdle editors only)
-    ├── mini-puzzles.js     Quill Mini puzzles     (Mini editor only)
+    ├── mini-puzzles.js     Quini puzzles     (Quini editor only)
     ├── quirdle-valid.js    Words players may guess (no need to edit)
     ├── common.js           Launch date, saving, pop-ups, keyboard
     ├── quirdle.js
@@ -50,7 +50,7 @@ you go live.
 
 - **Quirdle:** a word scheduled for today's date in `js/quirdle-answers.js`
   wins. Otherwise the next word from the backup list is used.
-- **Quill Mini:** a puzzle whose `date` is today wins. Otherwise the undated
+- **Quini:** a puzzle whose `date` is today wins. Otherwise the undated
   puzzles take turns, so keep adding them.
 
 Use the editor pages to change either one. They check everything and produce

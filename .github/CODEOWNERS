@@ -13,7 +13,7 @@
 # Quirdle word schedule: the Quirdle editors (list several people here).
 /js/quirdle-answers.js   @akirasmos
 
-# Quill Mini puzzles: the one Mini editor.
+# Quini puzzles: the one Quini editor.
 /js/mini-puzzles.js      @akirasmos
 
 # Nobody can quietly change the rules above.

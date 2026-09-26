@@ -1,4 +1,4 @@
-/* Quill Mini puzzles. MINI EDITOR ONLY.
+/* Quini puzzles. QUINI EDITOR ONLY.
  *
  * Who can change this file is controlled by .github/CODEOWNERS.
  * The easiest way to make a puzzle is editor/mini.html: build the grid, write
