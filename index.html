@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
+  <title>Games – The Quill</title>
+  <meta name="description" content="Daily word games and puzzles from The Quill: Quirdle and the Quill Mini crossword.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+  <header class="site-masthead">
+    <a class="logo" href="https://mkquill.com/">The Quill</a>
+    <div class="tagline">The Student News Publication of Morris Knolls High School</div>
+  </header>
+
+  <nav class="site-nav" aria-label="Sections">
+    <ul>
+      <li><a href="https://mkquill.com/">Home</a></li>
+      <li><a href="https://mkquill.com/category/school-news/">School News</a></li>
+      <li><a href="https://mkquill.com/category/world-news/">World News</a></li>
+      <li><a href="https://mkquill.com/category/features/">Features</a></li>
+      <li><a href="https://mkquill.com/category/opinion/">Opinion</a></li>
+      <li><a href="https://mkquill.com/category/all-stories/">All Stories</a></li>
+      <li><a href="index.html" aria-current="page">Games</a></li>
+      <li><a href="https://mkquill.com/about/">About</a></li>
+      <li><a href="https://mkquill.com/staff/">Staff</a></li>
+    </ul>
+  </nav>
+
+  <main class="hub">
+    <div class="section-head">
+      <h1>Games</h1>
+      <span class="date" id="today"></span>
+    </div>
+    <p class="hub-intro">Two new puzzles every day, made by The Quill staff. Take a study break.</p>
+
+    <section class="game-grid">
+      <a class="game-card quirdle" href="quirdle.html">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 96 96">
+            <rect x="6" y="6" width="24" height="24" rx="4" fill="#e3a92b"/>
+            <rect x="36" y="6" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
+            <rect x="66" y="6" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
+            <rect x="6" y="36" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
+            <rect x="36" y="36" width="24" height="24" rx="4" fill="#e3a92b"/>
+            <rect x="66" y="36" width="24" height="24" rx="4" fill="#ffffff"/>
+            <rect x="6" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
+            <rect x="36" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
+            <rect x="66" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
+            <text x="18" y="85" font-family="Oswald, Arial" font-weight="600" font-size="17" fill="#16553a" text-anchor="middle">Q</text>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="kicker">Word game</span>
+          <h2>Quirdle</h2>
+          <p class="desc">Find the hidden five-letter word in six guesses.</p>
+          <div class="status" id="quirdle-status"></div>
+          <span class="play">Play</span>
+        </div>
+      </a>
+
+      <a class="game-card mini" href="mini.html">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 96 96">
+            <!-- 2x2 crossword: one black square, three open squares -->
+            <rect x="8" y="8" width="80" height="80" rx="3" fill="#ffffff" stroke="#0e3d29" stroke-width="6"/>
+            <rect x="8" y="8" width="40" height="40" fill="#0e3d29"/>
+            <line x1="48" y1="8" x2="48" y2="88" stroke="#0e3d29" stroke-width="5"/>
+            <line x1="8" y1="48" x2="88" y2="48" stroke="#0e3d29" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="body">
+          <span class="kicker">Crossword</span>
+          <h2>Quill Mini</h2>
+          <p class="desc">A quick 5&times;5 crossword. Race the clock.</p>
+          <div class="status" id="mini-status"></div>
+          <span class="play">Play</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="logo">The Quill</div>
+    <div>Morris Knolls High School &middot; <a href="https://mkquill.com/">mkquill.com</a></div>
+    <div style="margin-top:6px">New puzzles every day at midnight.</div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    (function () {
+      var day = Quill.puzzleNumber();
+      document.getElementById("today").textContent = Quill.prettyDate();
+
+      var q = Quill.load("quirdle-state", null);
+      var qs = document.getElementById("quirdle-status");
+      if (q && q.day === day) {
+        if (q.status === "won") { qs.textContent = "✓ Solved in " + q.guesses.length + "/6"; qs.classList.add("done"); }
+        else if (q.status === "lost") qs.textContent = "Better luck tomorrow";
+        else if (q.guesses.length) qs.textContent = "In progress · " + q.guesses.length + "/6 guesses";
+      }
+      if (!qs.textContent) qs.textContent = "Quirdle #" + (day + 1);
+
+      var m = Quill.load("mini-state", null);
+      var ms = document.getElementById("mini-status");
+      if (m && m.day === day && m.done) { ms.textContent = "✓ Solved in " + Quill.formatTime(m.seconds); ms.classList.add("done"); }
+      else if (m && m.day === day && m.started) ms.textContent = "In progress · " + Quill.formatTime(m.seconds);
+      else ms.textContent = "Mini #" + (day + 1);
+    })();
+  </script>
+</body>
+</html>
