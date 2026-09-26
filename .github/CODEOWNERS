@@ -14,7 +14,7 @@
 /js/quirdle-answers.js   @akirasmos
 
 # Quini puzzles: the one Quini editor.
-/js/mini-puzzles.js      @akirasmos
+/js/quini-puzzles.js     @akirasmos
 
 # Nobody can quietly change the rules above.
 /.github/CODEOWNERS      @akirasmos

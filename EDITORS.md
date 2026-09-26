@@ -11,13 +11,13 @@ The games are plain files on a website, so "who can make puzzles" really means
 | File | What it controls | Who can change it |
 |---|---|---|
 | `js/quirdle-answers.js` | Which Quirdle word runs on which day | The Quirdle editors (a few people) |
-| `js/mini-puzzles.js` | Every Quini puzzle | The Quini editor (one person) |
+| `js/quini-puzzles.js` | Every Quini puzzle | The Quini editor (one person) |
 
 Those rules live in **`.github/CODEOWNERS`** and are enforced by GitHub.
 Anyone else can *suggest* a change, but it can't go live until the right person
 approves it.
 
-The two editor pages (`editor/quirdle.html` and `editor/mini.html`) are safe to
+The two editor pages (`editor/quirdle.html` and `editor/quini.html`) are safe to
 leave online. Anyone can open them and draft puzzles, but they can't publish
 anything. Publishing only happens through GitHub.
 
@@ -38,7 +38,7 @@ Do this once, as the owner of the repository that hosts the games.
    with real usernames:
    ```
    /js/quirdle-answers.js   @quirdle-editor-1 @quirdle-editor-2 @quirdle-editor-3
-   /js/mini-puzzles.js      @mini-editor
+   /js/quini-puzzles.js     @quini-editor
    ```
    Keep yourself as the owner of `/.github/CODEOWNERS` so nobody can change
    the rules.
@@ -79,7 +79,7 @@ with several owners they can simply approve each other's schedules.
 
 ## Making a Quini
 
-1. Open `editor/mini.html`.
+1. Open `editor/quini.html`.
 2. Build the grid. Click a square and type. Press `.` or `#` for a black
    square, and press Space to switch between typing across and down. Tip:
    start from a published puzzle with **Load a published puzzle…** and change
@@ -93,7 +93,7 @@ with several owners they can simply approve each other's schedules.
    touch your real stats.
 6. Optional: set a **Date** to run it on a specific day. Puzzles without a
    date rotate on all other days.
-7. Click **Copy puzzle entry**. On GitHub, open `js/mini-puzzles.js` → the
+7. Click **Copy puzzle entry**. On GitHub, open `js/quini-puzzles.js` → the
    pencil (**Edit**) icon → paste the entry at the end of the list, just above
    the final `];` → **Commit changes… → Create a new branch and start a pull
    request**.

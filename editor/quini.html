@@ -89,7 +89,7 @@
     <h1>Make a Quini</h1>
     <p class="note">
       <b>Drafting here doesn't publish anything.</b> Build the grid, write a clue for every word,
-      test-solve it, then copy the finished entry into <code>js/mini-puzzles.js</code> on GitHub.
+      test-solve it, then copy the finished entry into <code>js/quini-puzzles.js</code> on GitHub.
       Only the Quini editor listed in <code>.github/CODEOWNERS</code> can approve it going live.
     </p>
 
@@ -126,7 +126,7 @@
           <button class="btn" id="test-btn">Test solve</button>
           <button class="btn secondary" id="copy-btn">Copy puzzle entry</button>
         </div>
-        <textarea id="output" readonly aria-label="Puzzle entry to paste into mini-puzzles.js"></textarea>
+        <textarea id="output" readonly aria-label="Puzzle entry to paste into quini-puzzles.js"></textarea>
       </div>
     </div>
   </main>
@@ -134,7 +134,7 @@
   <script src="../js/common.js"></script>
   <script src="../js/quirdle-valid.js"></script>
   <script src="../js/quirdle-answers.js"></script>
-  <script src="../js/mini-puzzles.js"></script>
+  <script src="../js/quini-puzzles.js"></script>
   <script>
   (function () {
     var SIZE = 5;
@@ -383,14 +383,14 @@
     document.getElementById("copy-btn").addEventListener("click", function () {
       if (!renderChecks() && !confirm("Some checks haven't passed. Copy anyway?")) return;
       navigator.clipboard.writeText(entryText()).then(
-        function () { Quill.toast("Copied. Paste it into the list in mini-puzzles.js"); },
+        function () { Quill.toast("Copied. Paste it into the list in quini-puzzles.js"); },
         function () { Quill.toast("Couldn't copy. Select the text below instead"); }
       );
     });
     document.getElementById("test-btn").addEventListener("click", function () {
       if (draft.cells.some(function (v) { return !v; })) return Quill.toast("Fill every square first");
       Quill.save("mini-preview", puzzleObject());
-      window.open("../mini.html?preview", "_blank");
+      window.open("../quini.html?preview", "_blank");
     });
 
     fillMeta();

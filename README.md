@@ -14,19 +14,20 @@ works on any host: GitHub Pages, Netlify, your school's web server, or an
 quill-games/
 ├── index.html              Games home page (links to both games)
 ├── quirdle.html            Quirdle
-├── mini.html               Quini crossword
+├── quini.html              Quini crossword
+├── mini.html               Redirects old links to quini.html
 ├── EDITORS.md              How to make puzzles, permissions, going live
 ├── editor/
 │   ├── quirdle.html        Schedule Quirdle words by date
-│   └── mini.html           Build, check and test-solve a Quini
+│   └── quini.html          Build, check and test-solve a Quini
 ├── css/games.css           Shared styles (colors are at the top)
 └── js/
     ├── quirdle-answers.js  Quirdle words by date  (Quirdle editors only)
-    ├── mini-puzzles.js     Quini puzzles     (Quini editor only)
+    ├── quini-puzzles.js    Quini puzzles          (Quini editor only)
     ├── quirdle-valid.js    Words players may guess (no need to edit)
     ├── common.js           Launch date, saving, pop-ups, keyboard
     ├── quirdle.js
-    └── mini.js
+    └── quini.js
 ```
 
 **Making puzzles, controlling who can publish them, and putting the games on

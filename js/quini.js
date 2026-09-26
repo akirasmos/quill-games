@@ -11,7 +11,7 @@
   var pool = undated.length ? undated : all;
   var puzzle = all.find(function (p) { return p.date === Quill.dateKey(); }) || pool[day % pool.length];
 
-  // Test-solve mode from editor/mini.html: play the draft without touching
+  // Test-solve mode from editor/quini.html: play the draft without touching
   // the real puzzle's progress or stats.
   var preview = /[?&]preview\b/.test(location.search) && Quill.load("mini-preview", null);
   if (preview) {

@@ -1,7 +1,7 @@
 /* Quini puzzles. QUINI EDITOR ONLY.
  *
  * Who can change this file is controlled by .github/CODEOWNERS.
- * The easiest way to make a puzzle is editor/mini.html: build the grid, write
+ * The easiest way to make a puzzle is editor/quini.html: build the grid, write
  * the clues, and copy the finished entry into this list.
  *
  * Each puzzle:
