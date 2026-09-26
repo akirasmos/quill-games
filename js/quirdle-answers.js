@@ -13,7 +13,7 @@
  * quirdle-valid.js in the editor, so players can always type the answer.
  */
 window.QUIRDLE_SCHEDULE = {
-  "2026-09-26": "quill",
+  "2026-09-26": "feast",
   "2026-09-27": "write",
   "2026-09-28": "story",
   "2026-09-29": "paper",
