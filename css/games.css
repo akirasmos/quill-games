@@ -1,37 +1,39 @@
 /* The Quill Games — shared styles */
-/* Colors follow Morris Knolls green and gold. Change these to match
-   mkquill.com exactly if you have the site's hex codes. */
+/* Colors and section styling match mkquill.com (green #127c00, gray
+   section bands). The games have no header of their own: on the site they
+   sit inside a page that already shows The Quill's masthead and menu. */
 :root {
   /* Always light, like mkquill.com: no dark mode. */
   color-scheme: light;
   --bg: #ffffff;
-  --surface: #f4f6f3;
-  --text: #1b1b1b;
-  --muted: #5c615d;
-  --line: #d9ddd8;
-  --brand: #16553a;          /* Quill green */
-  --brand-dark: #0e3d29;
+  --surface: #f2f2f2;
+  --band: #dddddd;           /* gray section band, like the site */
+  --text: #1f1f1f;
+  --muted: #666666;
+  --line: #d6d6d6;
+  --brand: #127c00;          /* mkquill.com green */
+  --brand-dark: #0c5700;
   --brand-text: #ffffff;
-  --heading: #16553a;         /* headings on page background */
-  --gold: #e3a92b;           /* Golden Eagles gold */
-  --gold-dark: #b9851a;
-  --key: #dfe3de;
-  --key-text: #1b1b1b;
-  --correct: #16553a;
-  --present: #e3a92b;
-  --absent: #7d837e;
-  --tile-border: #cfd4ce;
-  --tile-filled: #7d837e;
-  --cell-active: #f3c34a;
-  --cell-word: #d3e8da;
+  --heading: #127c00;        /* headings on page background */
+  --gold: #d8b04c;           /* feather gold */
+  --gold-dark: #9c7a22;
+  --key: #dddddd;
+  --key-text: #1f1f1f;
+  --correct: #127c00;
+  --present: #d8b04c;
+  --absent: #7a7a7a;
+  --tile-border: #d0d0d0;
+  --tile-filled: #7a7a7a;
+  --cell-active: #f0cd6a;
+  --cell-word: #d5ebcf;
   --cell-bg: #ffffff;
-  --block: #1b1b1b;
-  --grid-border: #1b1b1b;
-  --shadow: 0 6px 24px rgba(14, 61, 41, 0.18);
+  --block: #1f1f1f;
+  --grid-border: #1f1f1f;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
   --radius: 6px;
-  --serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
-  --display: "Oswald", "Arial Narrow", Arial, sans-serif;
-  --sans: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --serif: "Alegreya", Georgia, "Times New Roman", serif;
+  --display: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -51,51 +53,49 @@ button {
   cursor: pointer;
 }
 
-/* ---------- Game page header (green bar) ---------- */
+/* ---------- Section band (matches mkquill.com section headings) ---------- */
+.section-band,
 .games-header {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  height: 56px;
-  padding: 0 16px;
-  background: var(--brand);
-  color: var(--brand-text);
-  border-bottom: 4px solid var(--gold);
+  background: var(--band);
+  border-top: 5px solid var(--brand);
+  border-bottom: 4px solid var(--brand);
+  color: var(--text);
 }
-.games-header .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.section-band { padding: 8px 14px; flex-wrap: wrap; margin-bottom: 8px; }
+.section-band h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0;
+}
+.section-band .date { font-size: 15px; color: var(--muted); }
+
+/* Title strip at the top of each game (not a site header) */
+.games-header {
+  position: relative;
+  min-height: 54px;
+  padding: 0 8px 0 14px;
+}
+.games-header .back {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand);
   text-decoration: none;
   white-space: nowrap;
 }
-.games-header .brand .masthead {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 20px;
-}
-.games-header .brand .section {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--brand);
-  background: var(--gold);
-  padding: 2px 8px;
-  border-radius: 3px;
-}
+.games-header .back:hover { text-decoration: underline; }
 .games-header .title {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 22px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 .header-actions {
   display: flex;
@@ -109,116 +109,25 @@ button {
   border-radius: 4px;
   display: inline-flex;
 }
-.icon-btn:hover { background: rgba(255, 255, 255, 0.14); }
+.icon-btn:hover { background: rgba(0, 0, 0, 0.08); }
 .modal .icon-btn:hover { background: var(--surface); }
 .icon-btn svg { width: 24px; height: 24px; }
 
 @media (max-width: 520px) {
-  .games-header .brand .section { display: none; }
-  .games-header .title { font-size: 18px; }
-}
-
-/* ---------- Site masthead + nav (games home) ---------- */
-.site-masthead {
-  text-align: center;
-  padding: 28px 16px 20px;
-  background: var(--bg);
-}
-.site-masthead .logo {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(44px, 9vw, 76px);
-  color: var(--heading);
-  text-decoration: none;
-  line-height: 1;
-}
-.site-masthead .tagline {
-  font-family: var(--display);
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 10px;
-}
-.site-nav {
-  background: var(--brand);
-  border-bottom: 4px solid var(--gold);
-}
-.site-nav ul {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0 8px;
-  max-width: 1100px;
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.site-nav ul::-webkit-scrollbar { display: none; }
-.site-nav a {
-  display: block;
-  padding: 13px 14px;
-  font-family: var(--display);
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--brand-text);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.site-nav a:hover { background: var(--brand-dark); }
-.site-nav a[aria-current="page"] { background: var(--gold); color: var(--brand-dark); }
-@media (max-width: 900px) {
-  .site-nav ul { justify-content: flex-start; }
+  .games-header .title { font-size: 21px; }
+  .games-header .back { font-size: 14px; }
 }
 
 /* ---------- Games home ---------- */
 .hub {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 16px 56px;
-}
-.section-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  border-bottom: 3px solid var(--brand);
-  margin-bottom: 8px;
-}
-.section-head h1 {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 32px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;
-  padding: 0 14px 4px 0;
-  color: var(--heading);
-  position: relative;
-}
-.section-head h1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 3px;
-  background: var(--gold);
-}
-.section-head .date {
-  font-family: var(--display);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 14px;
-  color: var(--muted);
-  padding-bottom: 8px;
+  padding: 16px 16px 40px;
 }
 .hub-intro {
   color: var(--muted);
   font-size: 18px;
-  margin: 12px 0 28px;
+  margin: 12px 0 24px;
 }
 .game-grid {
   display: grid;
@@ -292,27 +201,6 @@ button {
   .game-card { grid-template-columns: 1fr; }
   .game-card .art { height: 130px; }
 }
-.embedded .site-masthead,
-.embedded .site-nav,
-.embedded .site-footer { display: none; }
-.embedded .hub { padding-top: 16px; }
-
-.site-footer {
-  background: var(--brand-dark);
-  color: #d7e3db;
-  text-align: center;
-  padding: 28px 16px;
-  font-size: 14px;
-  border-top: 4px solid var(--gold);
-}
-.site-footer .logo {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 6px;
-}
-.site-footer a { color: #fff; }
 
 /* ---------- Modals & toasts ---------- */
 .modal-backdrop {

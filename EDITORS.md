@@ -144,9 +144,10 @@ mkquill.com looks like a WordPress site. You'll need an **Administrator** or
    Menus**) → tick **Games** under Pages → **Add to Menu** → drag it where
    you want → **Save Menu**.
 
-Inside the page, the games hide their own masthead, nav bar and footer, since
-the newspaper page around them already has those. Opened directly at the
-GitHub address, they show everything.
+The games have no header of their own. On the Games page, readers see The
+Quill's normal masthead and menu (the same as every other page on the site),
+with the games underneath. Opened directly at the GitHub address, the games
+start straight at the gray "Games" heading.
 
 **If the Custom HTML block is missing or your iframe disappears when you
 save:** some hosts (including student-newspaper hosting services) only let
@@ -154,8 +155,9 @@ Administrators add iframes. Ask your adviser or the site admin to paste it, or
 contact the host's support and ask how to embed an iframe. If embedding isn't
 allowed at all, add a **Custom Link** to the menu instead
 (**Appearance → Menus → Custom Links**, URL
-`https://akirasmos.github.io/quill-games/`, text `Games`). The games already
-look like part of The Quill, so readers still get a matching page.
+`https://akirasmos.github.io/quill-games/`, text `Games`). Readers won't see
+the site's masthead on that page, though, so ask your host about embedding
+first.
 
 ### Step 3 (optional): A nicer address
 
@@ -173,8 +175,6 @@ To use `games.mkquill.com` instead of the github.io address:
 
 - Set `LAUNCH_DATE` in `js/common.js` to the day you go live, so that day is
   puzzle #1.
-- Check the section links in the nav bar in `index.html` against the real
-  site. They only show when someone opens the games directly.
 - Don't add the editor pages to the menu. Editors can bookmark
   `…/quill-games/editor/quirdle.html` and `…/editor/quini.html`.
 

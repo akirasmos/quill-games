@@ -1,7 +1,8 @@
 # The Quill Games
 
 A daily games section for *The Quill*, the student news publication of Morris
-Knolls High School, styled in The Quill's green and gold to sit alongside mkquill.com:
+Knolls High School. It's styled to match mkquill.com and is meant to sit inside
+a page on that site, under The Quill's own masthead and menu:
 
 - **Quirdle**: guess the hidden 5-letter word in 6 tries.
 - **Quini**: a 5×5 daily crossword with a timer.
@@ -59,14 +60,14 @@ the finished file text. See [EDITORS.md](EDITORS.md).
 
 ## Customizing the look
 
-The colors are CSS variables at the top of `css/games.css`. `--brand` is Quill
-green and `--gold` is Golden Eagles gold. If mkquill.com uses slightly different
-shades, paste its hex codes there and everything updates. The games always display in light mode, like mkquill.com.
-Fonts are Libre Baskerville (masthead), Oswald (labels and nav) and Source Sans 3
-(text) from Google Fonts.
+The games have no header, nav or footer of their own. Those come from the
+mkquill.com page they're embedded in (see [EDITORS.md](EDITORS.md)).
 
-The nav bar on the games home page (`index.html`) links to the main sections of
-mkquill.com. Edit that list if the site's sections change.
+The colors are CSS variables at the top of `css/games.css`: `--brand` is the
+site's green (`#127c00`), `--band` is the gray behind section headings, and
+`--gold` matches the feather in the logo. The games always display in light
+mode, like mkquill.com. Fonts are Alegreya (headings) and Lato (text) from
+Google Fonts.
 
 ## Notes
 

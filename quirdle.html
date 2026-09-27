@@ -8,7 +8,7 @@
   <meta name="description" content="Guess the hidden five-letter word in six tries. A new Quirdle every day from The Quill.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/games.css">
   <style>
     html, body { height: 100%; }
@@ -95,10 +95,8 @@
   </style>
 </head>
 <body>
-  <header class="games-header">
-    <a class="brand" href="index.html" aria-label="Back to The Quill Games">
-      <span class="masthead">The Quill</span><span class="section">Games</span>
-    </a>
+  <div class="games-header">
+    <a class="back" href="index.html">&lsaquo; All games</a>
     <span class="title">Quirdle</span>
     <div class="header-actions">
       <button class="icon-btn" data-open="help-modal" aria-label="How to play">
@@ -108,7 +106,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11V3H8v6H2v12h20V11h-6zm-6-6h4v14h-4V5zm-6 6h4v8H4v-8zm16 8h-4v-6h4v6z"/></svg>
       </button>
     </div>
-  </header>
+  </div>
 
   <main>
     <div class="board-wrap"><div class="board" id="board" aria-label="Quirdle board"></div></div>

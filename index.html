@@ -8,41 +8,12 @@
   <meta name="description" content="Daily word games and puzzles from The Quill: Quirdle and the Quini crossword.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/games.css">
-  <script>
-    // Inside an iframe (e.g. a "Games" page on mkquill.com), or with ?embed in
-    // the address, hide our own masthead, nav and footer: the newspaper page
-    // around us already shows them.
-    (function () {
-      var framed = true;
-      try { framed = window.self !== window.top; } catch (e) {}
-      if (framed || /[?&]embed\b/.test(location.search)) document.documentElement.classList.add("embedded");
-    })();
-  </script>
 </head>
 <body>
-  <header class="site-masthead">
-    <a class="logo" href="https://mkquill.com/">The Quill</a>
-    <div class="tagline">The Student News Publication of Morris Knolls High School</div>
-  </header>
-
-  <nav class="site-nav" aria-label="Sections">
-    <ul>
-      <li><a href="https://mkquill.com/">Home</a></li>
-      <li><a href="https://mkquill.com/category/school-news/">School News</a></li>
-      <li><a href="https://mkquill.com/category/world-news/">World News</a></li>
-      <li><a href="https://mkquill.com/category/features/">Features</a></li>
-      <li><a href="https://mkquill.com/category/opinion/">Opinion</a></li>
-      <li><a href="https://mkquill.com/category/all-stories/">All Stories</a></li>
-      <li><a href="index.html" aria-current="page">Games</a></li>
-      <li><a href="https://mkquill.com/about/">About</a></li>
-      <li><a href="https://mkquill.com/staff/">Staff</a></li>
-    </ul>
-  </nav>
-
   <main class="hub">
-    <div class="section-head">
+    <div class="section-band">
       <h1>Games</h1>
       <span class="date" id="today"></span>
     </div>
@@ -52,16 +23,16 @@
       <a class="game-card quirdle" href="quirdle.html">
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 96 96">
-            <rect x="6" y="6" width="24" height="24" rx="4" fill="#e3a92b"/>
+            <rect x="6" y="6" width="24" height="24" rx="4" fill="#d8b04c"/>
             <rect x="36" y="6" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
             <rect x="66" y="6" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
             <rect x="6" y="36" width="24" height="24" rx="4" fill="#ffffff" fill-opacity="0.25"/>
-            <rect x="36" y="36" width="24" height="24" rx="4" fill="#e3a92b"/>
+            <rect x="36" y="36" width="24" height="24" rx="4" fill="#d8b04c"/>
             <rect x="66" y="36" width="24" height="24" rx="4" fill="#ffffff"/>
             <rect x="6" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
             <rect x="36" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
             <rect x="66" y="66" width="24" height="24" rx="4" fill="#ffffff"/>
-            <text x="18" y="85" font-family="Oswald, Arial" font-weight="600" font-size="17" fill="#16553a" text-anchor="middle">Q</text>
+            <text x="18" y="85" font-family="Oswald, Arial" font-weight="600" font-size="17" fill="#127c00" text-anchor="middle">Q</text>
           </svg>
         </div>
         <div class="body">
@@ -77,10 +48,10 @@
         <div class="art" aria-hidden="true">
           <svg viewBox="0 0 96 96">
             <!-- 2x2 crossword: one black square, three open squares -->
-            <rect x="8" y="8" width="80" height="80" rx="3" fill="#ffffff" stroke="#0e3d29" stroke-width="6"/>
-            <rect x="8" y="8" width="40" height="40" fill="#0e3d29"/>
-            <line x1="48" y1="8" x2="48" y2="88" stroke="#0e3d29" stroke-width="5"/>
-            <line x1="8" y1="48" x2="88" y2="48" stroke="#0e3d29" stroke-width="5"/>
+            <rect x="8" y="8" width="80" height="80" rx="3" fill="#ffffff" stroke="#0c5700" stroke-width="6"/>
+            <rect x="8" y="8" width="40" height="40" fill="#0c5700"/>
+            <line x1="48" y1="8" x2="48" y2="88" stroke="#0c5700" stroke-width="5"/>
+            <line x1="8" y1="48" x2="88" y2="48" stroke="#0c5700" stroke-width="5"/>
           </svg>
         </div>
         <div class="body">
@@ -93,12 +64,6 @@
       </a>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="logo">The Quill</div>
-    <div>Morris Knolls High School &middot; <a href="https://mkquill.com/">mkquill.com</a></div>
-    <div style="margin-top:6px">New puzzles every day at midnight.</div>
-  </footer>
 
   <script src="js/common.js"></script>
   <script>
